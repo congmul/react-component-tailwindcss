@@ -31,6 +31,16 @@ export default [
       ],
     },
     {
+      input: "src/index.css",
+      output: [{ file: "dist/index.css", format: "es" }],
+      plugins: [
+          postcss({
+              extract: true,
+              minimize: true,
+          }),
+      ],
+      },
+    {
       input: "dist/esm/types/index.d.ts",
       output: [{ file: "dist/index.d.ts", format: "esm" }],
       plugins: [dts()],
