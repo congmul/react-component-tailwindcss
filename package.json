@@ -1,17 +1,28 @@
 {
-  "name": "react-tailwindcss",
+  "name": "react-component-tailwindcss", 
   "version": "0.0.1",
-  "description": "",
-  "main": "index.js",
+  "description": "React Component Library with tailwindcss",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "rollup": "rollup -c"
   },
   "keywords": [],
-  "author": "",
+  "author": "Jehyun Jung",
   "license": "ISC",
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^28.0.0",
+    "@rollup/plugin-node-resolve": "^15.3.0",
+    "@rollup/plugin-typescript": "^12.1.0",
     "@types/react": "^18.3.10",
     "react": "^18.3.1",
+    "rollup": "^4.22.5",
+    "rollup-plugin-dts": "^6.1.1",
+    "tslib": "^2.7.0",
     "typescript": "^5.6.2"
-  }
+  },
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts"
 }

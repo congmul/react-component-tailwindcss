@@ -110,9 +110,9 @@
     "jsx": "react",       // To notice that it handles react componetns (TSX/JSX)
     "module": "ESNext",   // Modern JS
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "./dist/esm/types",
     "sourceMap": true,    // Generates correct line number when it get an issue.
-    "outDir": "dist",
+    "outDir": "./dist/esm",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "emitDeclarationOnly": true

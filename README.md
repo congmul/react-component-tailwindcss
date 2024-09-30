@@ -1,1 +1,1 @@
-# react-tailwindcss
+# react-component-tailwindcss
