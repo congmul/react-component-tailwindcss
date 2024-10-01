@@ -5,15 +5,13 @@ import dts from 'rollup-plugin-dts';
 import postcss from "rollup-plugin-postcss";
 
 import packageJson from './package.json' assert { type: 'json' };
+import terser from "@rollup/plugin-terser";
+import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+
 export default [
     {
       input: "src/index.ts",
       output: [
-        // {
-        //   file: packageJson.main,
-        //   format: "cjs",
-        //   sourcemap: true,
-        // },
         {
           file: packageJson.module,
           format: "esm",
@@ -21,6 +19,14 @@ export default [
         },
       ],
       plugins: [
+        /**
+         * peerDepsExternal();
+         * This project has required libraries (like React).
+         * It won't actually bundle a copy of React with the library itself. 
+         * If the consumer already has React in their project it will use that, 
+         * otherwise it will get installed when they run npm install.
+         */
+        peerDepsExternal(),
         resolve(),
         commonjs(),
         typescript({ tsconfig: "./tsconfig.json" }),
@@ -28,6 +34,8 @@ export default [
           extract: true, 
           minimize: true,
         }),
+        // minify our bundle and reduce the overall file size
+        terser(),
       ],
     },
     {
