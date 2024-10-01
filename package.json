@@ -1,6 +1,6 @@
 {
   "name": "react-component-tailwindcss",
-  "version": "0.0.3-a.6",
+  "version": "0.0.3-a.7",
   "description": "React Component Library with tailwindcss",
   "scripts": {
     "rollup": "rollup -c",
@@ -8,9 +8,13 @@
     "storybook": "storybook dev -p 6006",
     "build": "storybook build"
   },
-  "keywords": [],
+  "keywords": ["react", "tailwindcss", "tailwind"],
   "author": "Jehyun Jung",
   "license": "ISC",
+  "homepage": "https://victorious-mushroom-03215740f.5.azurestaticapps.net",
+  "repository": {
+    "url": "https://github.com/congmul/react-component-tailwindcss"
+  },
   "devDependencies": {
     "@babel/core": "^7.25.2",
     "@babel/preset-env": "^7.25.4",
