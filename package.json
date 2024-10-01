@@ -8,7 +8,11 @@
     "storybook": "storybook dev -p 6006",
     "build": "storybook build"
   },
-  "keywords": ["react", "tailwindcss", "tailwind"],
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "tailwind"
+  ],
   "author": "Jehyun Jung",
   "license": "MIT",
   "homepage": "https://victorious-mushroom-03215740f.5.azurestaticapps.net",
@@ -39,6 +43,7 @@
     "@types/react": "^18.3.10",
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
+    "classnames": "^2.5.1",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
