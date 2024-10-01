@@ -4,8 +4,10 @@ import classNames from 'classnames';
 export interface ButtonProps {
     /** ReactNode | string */
     children: React.ReactNode | string;
-     /** 'primary' | 'secondary' */
-    type?: 'primary' | 'secondary';
+    /** 'primary' | 'secondary' */
+    variant?: 'primary' | 'secondary';
+    /** 'button' | 'submit' | 'reset' */
+    type?: 'button' | 'submit' | 'reset';
     /** 'sm' | 'base' | 'lg' */
     size?: 'sm' | 'base' | 'lg';
     className?: string;
@@ -15,7 +17,7 @@ export interface ButtonProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button:React.FC<ButtonProps> = ({children = 'Button', type = 'primary', size = 'base', className, rounded = false, disabled = false, onClick, ...restProps}) => {
+const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary', size = 'base', type = 'button', className, rounded = false, disabled = false, onClick, ...restProps}) => {
     const buttonStyles = {
         primary: "bg-sky-500 text-white hover:bg-sky-400 border border-sky-500",
         secondary: "bg-white text-sky-500 hover:bg-sky-100 border border-sky-500",
@@ -32,14 +34,14 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', type = 'primary', si
     const buttonClass = classNames(
         buttonSize[size],
         rounded ? 'rounded-3xl' : 'rounded',
-        buttonStyles[type],
-        disabledType[type],
+        buttonStyles[variant],
+        disabledType[variant],
         className
     );
     return <button 
             className={buttonClass}
-            role="button"
-            type="button"
+            role={type}
+            type={type}
             onClick={onClick}
             disabled={disabled}
             {...restProps}
