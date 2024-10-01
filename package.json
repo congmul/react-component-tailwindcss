@@ -10,7 +10,7 @@
   },
   "keywords": ["react", "tailwindcss", "tailwind"],
   "author": "Jehyun Jung",
-  "license": "ISC",
+  "license": "MIT",
   "homepage": "https://victorious-mushroom-03215740f.5.azurestaticapps.net",
   "repository": {
     "url": "https://github.com/congmul/react-component-tailwindcss"
