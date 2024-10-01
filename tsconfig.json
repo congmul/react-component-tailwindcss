@@ -107,14 +107,14 @@
     // "skipDefaultLibCheck": true,                      /* Skip type checking .d.ts files that are included with TypeScript. */
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
 
-    "jsx": "react",       // To notice that it handles react componetns (TSX/JSX)
-    "module": "ESNext",   // Modern JS
-    "declaration": true,
-    "declarationDir": "./dist/esm/types",    
-    "sourceMap": true,    // Generates correct line number when it get an issue.
-    "outDir": "./dist/esm", 
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
-    "emitDeclarationOnly": true
+    "jsx": "react",       // Transform JSX into React code
+    "module": "ESNext",   //  Generate modern JS modules for our library
+    "declaration": true,  // Output a .d.ts file for our library type
+    "declarationDir": "./dist/esm/types",  // Where to place the .d.ts files
+    "sourceMap": true,    // Mapping JS code back to its TS file origins for debugging / Generates correct line number when it get an issue.
+    "outDir": "./dist/esm",  // Directory where the project will be generated
+    "moduleResolution": "node", // Follow node.js rules for finding modules
+    "allowSyntheticDefaultImports": true, // Assumes default exports if none are created manually
+    "emitDeclarationOnly": true // Don't generate JS (rollup will do that) only export type declarations
   },
 }
