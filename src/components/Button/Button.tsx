@@ -54,9 +54,9 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         },
     }
     const buttonSize = {
-        sm: "h-8 w-16 text-sm",
-        base: "h-10 w-20 text-base",
-        lg: "h-12 w-24 text-lg",
+        sm: "h-8 py-1 px-5 text-sm",
+        base: "h-10 py-2 px-6 text-base",
+        lg: "h-12 py-2 px-7 text-lg",
     }
     const spinnerSize = {
         sm: "h-3",
@@ -91,6 +91,7 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         },
     }
     const buttonClass = classNames(
+        'w-full relative',
         buttonSize[size],
         rounded ? 'rounded-3xl' : 'rounded',
         buttonColor[color][variant],
@@ -105,9 +106,12 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
             disabled={disabled}
             {...restProps}
         >{
-            loading 
-            ? <span className="flex justify-center"><Spinner size={spinnerSize[size] as any} color={variant === 'primary' ? 'white' : color}/></span>
-            : children
+            <>
+                {loading && <span className="flex justify-center items-center w-full">
+                    <Spinner size={spinnerSize[size] as any} color={variant === 'primary' ? 'white' : color}/>
+                </span>}
+                <div className={loading ? 'invisible h-0' : ''}>{children}</div>
+            </> 
         }</button>
 }
 
