@@ -1,6 +1,6 @@
 {
   "name": "react-component-tailwindcss",
-  "version": "0.0.3-a.11",
+  "version": "0.0.3-a.12",
   "description": "React Component Library with tailwindcss",
   "scripts": {
     "rollup": "rollup -c",
