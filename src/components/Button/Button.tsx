@@ -61,7 +61,7 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
     const spinnerSize = {
         sm: "h-3",
         base: "h-4",
-        lg: "h-6",
+        lg: "h-5",
     }
     const disabledType = {
         sky: {
