@@ -2,9 +2,9 @@ import React from 'react';
 import classNames from 'classnames';
 
 export interface SpinnerProps {
-    /** 'h-4' | 'h-6' | 'h-8' | 'h-10' | 'h-12' */
-    size?: 'h-4' | 'h-6' | 'h-8' | 'h-10' | 'h-12';
-    color?: 'sky' | 'red' | 'green' | 'amber' | 'pink';
+    /** 'h-3' | 'h-4' | 'h-6' | 'h-8' | 'h-10' | 'h-12' */
+    size?: 'h-3' | 'h-4' | 'h-6' | 'h-8' | 'h-10' | 'h-12';
+    color?: 'sky' | 'red' | 'green' | 'amber' | 'pink' | 'white';
 }
 
 const Spinner:React.FC<SpinnerProps> = ({size = 'h-6', color = 'sky' }) => {
@@ -14,6 +14,7 @@ const Spinner:React.FC<SpinnerProps> = ({size = 'h-6', color = 'sky' }) => {
         green: "text-green-500",
         amber: "text-amber-500",
         pink: "text-pink-300",
+        white: "text-white",
     }
     const spinnerClass = classNames(
         "text-gray-300 animate-spin",
@@ -32,7 +33,7 @@ const Spinner:React.FC<SpinnerProps> = ({size = 'h-6', color = 'sky' }) => {
                     <path
                         d="M32 3C36.5778 3 41.0906 4.08374 45.1692 6.16256C49.2477 8.24138 52.7762 11.2562 55.466 14.9605C58.1558 18.6647 59.9304 22.9531 60.6448 27.4748C61.3591 31.9965 60.9928 36.6232 59.5759 40.9762"
                         stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" 
-                        className={'text-gray-100'}
+                        className={'text-gray-300'}
                     >
                     </path>
             </svg>

@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Spinner from '../Spinner';
 
 export interface ButtonProps {
     /** ReactNode | string */
@@ -11,6 +12,7 @@ export interface ButtonProps {
     type?: 'button' | 'submit' | 'reset';
     /** 'sm' | 'base' | 'lg' */
     size?: 'sm' | 'base' | 'lg';
+    loading?: boolean;
     className?: string;
     rounded?: boolean;
     disabled?: boolean;
@@ -18,7 +20,7 @@ export interface ButtonProps {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary', color = 'sky',  size = 'base', type = 'button', className, rounded = false, disabled = false, onClick, ...restProps}) => {
+const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary', color = 'sky',  size = 'base', loading=false, type = 'button', className, rounded = false, disabled = false, onClick, ...restProps}) => {
     const buttonStyles = {
         primary: 'text-white border',
         secondary: 'bg-white border',
@@ -52,9 +54,14 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         },
     }
     const buttonSize = {
-        sm: "py-2 px-5 text-sm",
-        base: "py-2 px-6 text-base",
-        lg: "py-2 px-7 text-lg"
+        sm: "h-8 w-16 text-sm",
+        base: "h-10 w-20 text-base",
+        lg: "h-12 w-24 text-lg",
+    }
+    const spinnerSize = {
+        sm: "h-3",
+        base: "h-4",
+        lg: "h-6",
     }
     const disabledType = {
         sky: {
@@ -88,7 +95,7 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         rounded ? 'rounded-3xl' : 'rounded',
         buttonColor[color][variant],
         disabledType[color][variant],
-        className
+        className,
     );
     return <button 
             className={buttonClass}
@@ -97,7 +104,11 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
             onClick={onClick}
             disabled={disabled}
             {...restProps}
-        >{children}</button>
+        >{
+            loading 
+            ? <span className="flex justify-center"><Spinner size={spinnerSize[size] as any} color={variant === 'primary' ? 'white' : color}/></span>
+            : children
+        }</button>
 }
 
 export default Button;
