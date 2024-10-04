@@ -5,6 +5,6 @@ import Drawer from "./Drawer";
 
 describe("Drawer", () => {
   test("renders the Drawer component", () => {
-    // render()
+    render(<Drawer isOpen={true} close={() => {}}>Drawer</Drawer>)
   });
 });
