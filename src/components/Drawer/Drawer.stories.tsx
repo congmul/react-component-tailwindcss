@@ -50,10 +50,11 @@ export const Main: Story = (args) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
 <div className="p-4 min-h-80">
-    <Button onClick={() => {setIsOpen(true);}}>Open drawer</Button>
-    <Drawer  {...args} isOpen={isOpen} close={() => {setIsOpen(false);}}>
+    <Button onClick={() => {setIsOpen(true); }}>Open drawer</Button>
+    <Drawer  {...args} isOpen={isOpen || args.isOpen} close={() => {setIsOpen(false); }}>
         <div className="p-4">
             {args.children}
+            {args.isOpen && <div className="mt-3">* It always remains open when <span className="text-red-500">isOpen is true</span> in the Controls panel.</div>}
         </div>
     </Drawer>
 </div>)
