@@ -4,6 +4,7 @@ import classNames from 'classnames';
 export interface DrawerProps {
     /** React.ReactNode | string */
     children: React.ReactNode | string;
+    className?: string;
     isOpen: boolean;
     close: () => void;
     closeOnMaskClick?: boolean;
@@ -13,7 +14,7 @@ export interface DrawerProps {
     direction?: 'left' | 'right' | 'top' | 'bottom';
 }
 
-const Drawer:React.FC<DrawerProps> = ({children, isOpen = false, close, closeOnMaskClick = true, size = '50%', direction = 'right'}) => {
+const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, close, closeOnMaskClick = true, size = '50%', direction = 'right'}) => {
     const xDirectionSize = {
         '25%': 'w-3/12 h-full',
         '33%': 'w-4/12 h-full',
@@ -71,6 +72,7 @@ const Drawer:React.FC<DrawerProps> = ({children, isOpen = false, close, closeOnM
         drawSize[direction][size],
         directionClasses[direction][`${isOpen}`],
         drawerClasses[direction],
+        className
     );
 
     // Handle click on the mask
