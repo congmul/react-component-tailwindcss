@@ -21,7 +21,7 @@ ${args.loading ? `\nconst [ loading, setLoading ] = useState(${args.loading})\n`
 const SampleComponent = () => {
   const clickFunc = (event: React.MouseEvent<HTMLButtonElement>) => {}
   return (
-    <Button${args.className ? ` className="${args.className}"` : ''}${args.variant ? ` variant="${args.variant}"` : ''}${args.color ? ` color="${args.color}"` : ''}${args.type ? ` type="${args.type}"` : ''}${args.size ? ` size="${args.size}"` : ''}${args.loading ? ` loading={loading}` : ''}${args.rounded ? ` rounded={${args.rounded}}` : ''}${args.disabled ? ` disabled={${args.disabled}}` : ''} onClick={clickFunc}></Button>
+    <Button${args.className ? ` className="${args.className}"` : ''}${args.variant ? ` variant="${args.variant}"` : ''}${args.color ? ` color="${args.color}"` : ''}${args.type ? ` type="${args.type}"` : ''}${args.size ? ` size="${args.size}"` : ''}${args.loading ? ` loading={loading}` : ''}${args.rounded ? ` rounded={${args.rounded}}` : ''}${args.disabled ? ` disabled={${args.disabled}}` : ''} onClick={clickFunc}>${args.children}</Button>
   );
 };`
         },
@@ -48,7 +48,5 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
     args: {
       children: 'Button',
-      variant: "primary",
-      color: "sky"
     }
 }
