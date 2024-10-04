@@ -24,8 +24,9 @@ npm install react-component-tailwindcss
 Here’s a quick example of how to use a component from the library:
 ```css
 /* In main css(scss) file */
-@import "react-component-tailwindcss/dist/index.css"
+@import "react-component-tailwindcss/dist/index.css";
 ```
+
 ```tsx
 // Inside your component.
 import React from 'react';
