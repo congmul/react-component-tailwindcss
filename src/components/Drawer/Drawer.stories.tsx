@@ -20,12 +20,12 @@ const meta: Meta<typeof Drawer> = {
             transform: (code: string, storyContext: StoryContext) => {
                 const { args } = storyContext;
                 return `
-import React${args.loading ? `{ useState }`: ''} from 'react';
+import React, { useState } from 'react';
 import { Drawer, Button } from 'react-component-tailwindcss';
 
-const [ isOpen, setIsOpen ] = useState(false)
-
 const SampleComponent = () => {
+    const [ isOpen, setIsOpen ] = useState(false)
+
     return (
         <Button onCLick={() => setIsOpen(true)}>
             Open drawer
