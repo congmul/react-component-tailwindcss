@@ -98,7 +98,7 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
                     <div className="p-4 border-b">
                         {
                             title &&
-                            <div className="w-11/12 text-lg font-bold mb-2">{title}</div>
+                            <div className={classNames(`w-11/12 text-lg font-bold`, subtitle && 'mb-2')}>{title}</div>
                         }
                         {
                             subtitle &&
