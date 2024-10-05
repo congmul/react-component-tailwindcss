@@ -7,6 +7,13 @@ export interface DrawerProps {
     className?: string;
     isOpen: boolean;
     close: () => void;
+    /** 
+     * React.ReactNode | string
+     * If the title and subtitle are undefined, the header will not be displayed.
+     */
+    title?: React.ReactNode | string;
+    /** React.ReactNode | string */
+    subtitle?: React.ReactNode | string;
     closeOnMaskClick?: boolean;
     /** '25%' | '33%' | '50%' | '75%' | '100%' */
     size?: '25%' | '33%' | '50%' | '75%' | '100%';
@@ -14,7 +21,7 @@ export interface DrawerProps {
     direction?: 'left' | 'right' | 'top' | 'bottom';
 }
 
-const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, close, closeOnMaskClick = true, size = '50%', direction = 'right'}) => {
+const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, close, title, subtitle, closeOnMaskClick = true, size = '50%', direction = 'right'}) => {
     const xDirectionSize = {
         '25%': 'w-3/12 h-full',
         '33%': 'w-4/12 h-full',
@@ -86,13 +93,20 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
     return(
         <div className={DrawerMaskClass} onClick={handleMaskClick}>
             <div className={DrawerClass}>
-                <span
-                    onClick={close}
-                    className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 hover:cursor-pointer"
-                >
-                X
-                </span>
-                <div>{children}</div>
+                {
+                    (title || subtitle) &&
+                    <div className="p-4 border-b">
+                        <div className="w-11/12 text-lg font-bold mb-2">{title}</div>
+                        <div className="text-sm text-gray-700">{subtitle}</div>
+                        <span
+                            onClick={close}
+                            className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 hover:cursor-pointer"
+                        >
+                        X
+                        </span>
+                    </div>
+                }
+                <div className="p-4">{children}</div>
             </div>
         </div>
         )

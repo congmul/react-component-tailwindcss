@@ -10,7 +10,9 @@ const meta: Meta<typeof Drawer> = {
   args: {
       isOpen: false,
       direction: 'right',
-      children: "Drawer",
+      title: 'Title',
+      subtitle: 'subtitle',
+      children: "Drawer Content",
       size: '50%',
       closeOnMaskClick: true        
   },
@@ -31,6 +33,7 @@ const SampleComponent = () => {
             Open drawer
         </Button>
         <Drawer isOpen={isOpen} close={() => setIsOpen(false)}${args.className ? ` className="${args.className}"` : ''}
+            ${args.title ? ` title="${args.title}"` : ''}${args.subtitle ? ` subtitle="${args.subtitle}"` : ''}
             ${args.size ? ` size="${args.size}"` : ''} closeOnMaskClick={${args.closeOnMaskClick === true}}${args.direction ? ` direction="${args.direction}"` : ''}
         >
             ${args.children}
@@ -52,7 +55,7 @@ export const Main: Story = (args) => {
 <div className="p-4 min-h-80">
     <Button onClick={() => {setIsOpen(true); }}>Open drawer</Button>
     <Drawer  {...args} isOpen={isOpen || args.isOpen} close={() => {setIsOpen(false); }}>
-        <div className="p-4">
+        <div>
             {args.children}
             {args.isOpen && <div className="mt-3">* It always remains open when <span className="text-red-500">isOpen is true</span> in the Controls panel.</div>}
         </div>
