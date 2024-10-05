@@ -91,7 +91,7 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         },
     }
     const buttonClass = classNames(
-        'relative',
+        'rct-button relative',
         buttonSize[size],
         rounded ? 'rounded-3xl' : 'rounded',
         buttonColor[color][variant],

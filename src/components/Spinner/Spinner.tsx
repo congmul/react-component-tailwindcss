@@ -17,7 +17,7 @@ const Spinner:React.FC<SpinnerProps> = ({size = 'h-6', color = 'sky' }) => {
         white: "text-white",
     }
     const spinnerClass = classNames(
-        "text-gray-300 animate-spin",
+        "rct-spinner text-gray-300 animate-spin",
         size
     );
     return(

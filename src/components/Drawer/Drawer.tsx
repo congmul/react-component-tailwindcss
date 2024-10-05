@@ -71,11 +71,11 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
         bottom: 'bottom-0',
       };
     const DrawerMaskClass = classNames(
-        'fixed inset-0 bg-black bg-opacity-50 transition-opacity',
+        'rct-drawer-mask fixed inset-0 bg-black bg-opacity-50 transition-opacity',
          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
     );
     const DrawerClass = classNames(
-        'fixed bg-white shadow-lg transform transition-transform duration-300 ease-in-out',        
+        'rct-drawer fixed bg-white shadow-lg transform transition-transform duration-300 ease-in-out',        
         drawSize[direction][size],
         directionClasses[direction][`${isOpen}`],
         drawerClasses[direction],
@@ -95,14 +95,14 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
             <div className={DrawerClass}>
                 {
                     (title || subtitle) &&
-                    <div className="p-4 border-b">
+                    <div className="rct-drawer-header p-4 border-b">
                         {
                             title &&
-                            <div className={classNames(`w-11/12 text-lg font-bold`, subtitle && 'mb-2')}>{title}</div>
+                            <div className={classNames(`title w-11/12 text-lg font-bold`, subtitle && 'mb-2')}>{title}</div>
                         }
                         {
                             subtitle &&
-                            <div className="text-sm text-gray-700">{subtitle}</div>
+                            <div className="rct-drawer-subtitle text-sm text-gray-700">{subtitle}</div>
                         }
                         <span
                             onClick={close}
@@ -112,7 +112,7 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
                         </span>
                     </div>
                 }
-                <div className="p-4">{children}</div>
+                <div className="rct-drawer-body p-4">{children}</div>
             </div>
         </div>
         )
