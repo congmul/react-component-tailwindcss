@@ -10,7 +10,7 @@ export interface ModalProps {
     title?: string
 }
 
-const Modal:React.FC<ModalProps> = ({children, className, isOpen = false, close, title}) => {
+const Modal:React.FC<ModalProps> = ({children, className, isOpen = false, close, title = 'Title'}) => {
     const ModalMaskClass = classNames(
         'rct-modal-mask fixed inset-0 bg-black bg-opacity-50 transition-opacity flex items-center justify-center',
          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
