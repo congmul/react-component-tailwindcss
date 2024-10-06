@@ -7,16 +7,18 @@ export interface ModalProps {
     className?: string;
     isOpen: boolean;
     close: () => void;
+    title?: string
 }
 
-const Modal:React.FC<ModalProps> = ({children, className, isOpen = false, close}) => {
+const Modal:React.FC<ModalProps> = ({children, className, isOpen = false, close, title}) => {
     const ModalMaskClass = classNames(
-        'rct-modal-mask fixed inset-0 bg-black bg-opacity-50 transition-opacity',
+        'rct-modal-mask fixed inset-0 bg-black bg-opacity-50 transition-opacity flex items-center justify-center',
          isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
     );
 
     const ModalClass = classNames(
-        'rct-modal fixed inset-0 flex items-center justify-center z-50', 
+        'rct-modal', 
+        'relative bg-white rounded-lg shadow-lg z-10 max-w-md min-w-80',
         className
     );
 
@@ -30,14 +32,16 @@ const Modal:React.FC<ModalProps> = ({children, className, isOpen = false, close}
     return(
         <div className={ModalMaskClass} onClick={handleMaskClick}>
             <div className={ModalClass}>
-                <div className="absolute inset-0 bg-gray-600 bg-opacity-50" onClick={close}></div>
-                <div className="relative bg-white rounded-lg shadow-lg p-6 z-10 max-w-md w-full">
+                <div className="rct-modal-header p-4 border-b">
+                    <div className="rct-modal-title w-11/12 text-lg font-bold">{title}</div>
                     <button
-                    onClick={close}
-                    className="absolute top-0 right-0 mt-4 mr-4 text-gray-700"
+                        onClick={close}
+                        className="absolute top-0 right-0 mt-4 mr-4 text-gray-600 hover:text-gray-800 hover:cursor-pointer"
                     >
                     &times;
                     </button>
+                </div>
+                <div className="rct-modal-body p-4 overflow-y-auto">
                     {children}
                 </div>
             </div>

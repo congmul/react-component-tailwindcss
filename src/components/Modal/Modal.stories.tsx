@@ -9,7 +9,8 @@ const meta: Meta<typeof Modal> = {
   tags: ['autodocs'],
   args: {
       isOpen: false,
-      children: "Modal Content",     
+      children: "Modal Content",
+      title: "Modal Title"
   },
   parameters: {
     docs: {
@@ -28,6 +29,7 @@ const SampleComponent = () => {
             Open Modal
         </Button>
         <Modal isOpen={isOpen} close={() => setIsOpen(false)}${args.className ? ` className="${args.className}"` : ''}
+            ${args.title ? ` title="${args.title}"` : ''}
         >
             ${args.children}
         </Modal>
