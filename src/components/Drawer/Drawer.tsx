@@ -72,10 +72,10 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
       };
     const DrawerMaskClass = classNames(
         'rct-drawer-mask fixed inset-0 bg-black bg-opacity-50 transition-opacity',
-         isOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
+         isOpen ? 'opacity-100 z-10' : 'opacity-0 pointer-events-none'
     );
     const DrawerClass = classNames(
-        'rct-drawer fixed bg-white shadow-lg transform transition-transform duration-300 ease-in-out',        
+        'rct-drawer fixed bg-white shadow-lg transform transition-transform duration-300 ease-in-out z-10',        
         drawSize[direction][size],
         directionClasses[direction][`${isOpen}`],
         drawerClasses[direction],
