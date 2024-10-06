@@ -39,7 +39,7 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         },
         green: {
             primary: `${buttonStyles[variant]} bg-green-500 hover:bg-green-400 border-green-500`,
-            secondary: `${buttonStyles[variant]} text-green-500hover:bg-green-100 border-green-500`,
+            secondary: `${buttonStyles[variant]} text-green-500 hover:bg-green-100 border-green-500`,
             text: `${buttonStyles[variant]} text-green-500 hover:bg-green-100 border-green-500`,
         },
         amber: {
@@ -91,7 +91,7 @@ const Button:React.FC<ButtonProps> = ({children = 'Button', variant = 'primary',
         },
     }
     const buttonClass = classNames(
-        'relative',
+        'rct-button relative',
         buttonSize[size],
         rounded ? 'rounded-3xl' : 'rounded',
         buttonColor[color][variant],
