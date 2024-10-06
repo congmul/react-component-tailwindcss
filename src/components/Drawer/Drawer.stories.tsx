@@ -53,7 +53,7 @@ export const Main: Story = (args) => {
     const [isOpen, setIsOpen] = useState(false);
     return (
 <div className="p-4 min-h-80">
-    <Button onClick={() => {setIsOpen(true); }}>Open drawer</Button>
+    <Button onClick={() => {setIsOpen(true); }}>Open Drawer</Button>
     <Drawer  {...args} isOpen={isOpen || args.isOpen} close={() => {setIsOpen(false); }}>
         <div>
             {args.children}

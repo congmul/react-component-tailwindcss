@@ -108,7 +108,7 @@ const Drawer:React.FC<DrawerProps> = ({children, className, isOpen = false, clos
                             onClick={close}
                             className="absolute top-4 right-4 text-gray-600 hover:text-gray-800 hover:cursor-pointer"
                         >
-                        X
+                        &times;
                         </span>
                     </div>
                 }
