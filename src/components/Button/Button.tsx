@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Spinner from '../Spinner';
 
-export interface ButtonProps {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     /** ReactNode | string */
     children: React.ReactNode | string;
     /** 'primary' | 'secondary' */
