@@ -8,7 +8,7 @@ const meta: Meta<typeof Input> = {
   component: Input,
   tags: ['autodocs'],
   args: {
-      children: "Input Content",      
+      defaultValue: "Input Content",      
   },
   parameters: {
     docs: {
@@ -46,6 +46,9 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main: Story = {
     args: {
-      children: 'Input',
+        defaultValue: 'Jehyun',
+        placeholder: 'Email',
+        className: 'w-52 m-4',
+        onChange: () => {}
     }
 }

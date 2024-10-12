@@ -5,6 +5,6 @@ import Input from "./Input";
 
 describe("Input", () => {
   test("renders the Input component", () => {
-    render(<Input>Input</Input>)
+    render(<Input defaultValue="tinput" onChange={(value) => console.log(value)}/>)
   });
 });
