@@ -6,18 +6,31 @@ export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElem
     defaultValue?: string;
     placeholder?: string
     type?: "email" | "password" | "text" | 'number'
+    /**
+     * Default color is 'sky'
+     */
+    color?: 'sky' | 'red' | 'green' | 'amber' | 'pink';
     className?: string;
     onChange: (value: string, type: string) => void
 }
 
-const Input:React.FC<InputProps> = ({ className, type = 'text', defaultValue = '', placeholder = '', onChange, ...restProps}) => {
+const Input:React.FC<InputProps> = ({ className, type = 'text', color = 'sky', defaultValue = '', placeholder = '', onChange, ...restProps}) => {
     const [value, setValue] = useState(() => defaultValue);
     const [focused, setFocused] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
+    const ringColor:Record<'sky' | 'red' | 'green' | 'amber' | 'pink', string> = {
+        'sky': 'ring-sky-300',
+        'red': 'ring-red-300',
+        'green': 'ring-green-300',
+        'amber': 'ring-amber-300',
+        'pink': 'ring-pink-300'
+    }
+
     const InputWrapperClass = classNames(
         'rct-input-wrapper relative min-w-48 px-[15px] pt-[25px] pb-[8px] h-[60px] border rounded-md shadow-sm',
-        { 'ring ring-red-300 ring-opacity-50' : focused },
+        { 'ring ring-opacity-50' : focused },
+        ringColor[color || 'sky'],
         className
     );
     const InputClass = classNames(
