@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import type { Meta, StoryObj, StoryFn, StoryContext } from '@storybook/react';
+import React from 'react';
+import type { Meta, StoryObj, StoryContext } from '@storybook/react';
  
 import Input from './Input';
-import Button from '../Button';
 
 const meta: Meta<typeof Input> = {
   component: Input,
@@ -16,22 +15,17 @@ const meta: Meta<typeof Input> = {
             transform: (code: string, storyContext: StoryContext) => {
                 const { args } = storyContext;
                 return `
-import React, { useState } from 'react';
-import { Drawer, Button } from 'react-component-tailwindcss';
+import React from 'react';
+import { Input } from 'react-component-tailwindcss';
 
 const SampleComponent = () => {
-    const [ isOpen, setIsOpen ] = useState(false)
-
+    function onChange(value: string, type: string){
+        console.log({value, type});
+    }
     return (
-        <Button onCLick={() => setIsOpen(true)}>
-            Open drawer
-        </Button>
-        <Drawer isOpen={isOpen} close={() => setIsOpen(false)}${args.className ? ` className="${args.className}"` : ''}
-            ${args.title ? ` title="${args.title}"` : ''}${args.subtitle ? ` subtitle="${args.subtitle}"` : ''}
-            ${args.size ? ` size="${args.size}"` : ''} closeOnMaskClick={${args.closeOnMaskClick === true}}${args.direction ? ` direction="${args.direction}"` : ''}
-        >
-            ${args.children}
-        </Drawer>
+        <Input placeholder={'Email'} ${args.className ? ` className="${args.className}"` : ''} onChange={onChange}
+            ${args.type ? ` type="${args.type}"` : ''}${args.defaultValue ? ` defaultValue="${args.defaultValue}"` : ''}${args.inputSize ? ` inputSize="${args.inputSize}"` : ''}${args.color ? ` color="${args.color}"` : ''}        
+        />
     );
 };`
             }
@@ -49,6 +43,9 @@ export const Main: Story = {
         defaultValue: 'Jehyun',
         placeholder: 'Email',
         className: 'w-52 m-4',
+        type: 'email',
+        inputSize: 'base',
+        color: 'sky',
         onChange: () => {}
     }
 }
