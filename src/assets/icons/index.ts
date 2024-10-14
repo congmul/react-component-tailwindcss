@@ -1,3 +1,5 @@
-import EyeSVG from './EyeSVG';
+import EyeOulineSVG from './EyeOutlineSVG';
+import EyeHideOutlineSVG from './EyeHideOutlineSVG';
+import CloseCircleOutlineSVGProps from './CloseCircleOutline';
 
-export { EyeSVG }
+export { EyeOulineSVG, EyeHideOutlineSVG, CloseCircleOutlineSVGProps }

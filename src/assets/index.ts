@@ -1,1 +1,5 @@
-export { EyeSVG } from './icons'
+export { 
+    EyeOulineSVG, 
+    EyeHideOutlineSVG, 
+    CloseCircleOutlineSVGProps 
+} from './icons'
