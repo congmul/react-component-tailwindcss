@@ -1,6 +1,6 @@
 {
   "name": "react-component-tailwindcss",
-  "version": "0.0.3-a.18",
+  "version": "0.0.3-a.19",
   "description": "React Component Library with tailwindcss",
   "scripts": {
     "rollup": "rollup -c",
@@ -45,6 +45,7 @@
     "@testing-library/react": "^16.0.1",
     "@types/jest": "^29.5.13",
     "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.0.0",
     "autoprefixer": "^10.4.20",
     "babel-jest": "^29.7.0",
     "classnames": "^2.5.1",
@@ -62,7 +63,8 @@
     "typescript": "^5.6.2"
   },
   "peerDependencies": {
-    "react": "^18.3.1"
+    "react": "^18.3.1 || ^19.0.0",
+    "react-dom": "^18.3.1 || ^19.0.0"
   },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
