@@ -1,6 +1,6 @@
 {
   "name": "react-component-tailwindcss",
-  "version": "0.0.4",
+  "version": "0.0.3-a.19",
   "description": "React Component Library with tailwindcss",
   "scripts": {
     "rollup": "rollup -c",
@@ -60,7 +60,8 @@
     "storybook": "^8.3.4",
     "tailwindcss": "^3.4.13",
     "tslib": "^2.7.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "vite": "^5.4.21"
   },
   "peerDependencies": {
     "react": "^18.3.1 || ^19.0.0",
