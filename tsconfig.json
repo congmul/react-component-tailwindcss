@@ -113,7 +113,9 @@
     "declarationDir": "./dist/esm/types",  // Where to place the .d.ts files
     "sourceMap": true,    // Mapping JS code back to its TS file origins for debugging / Generates correct line number when it get an issue.
     "outDir": "./dist/esm",  // Directory where the project will be generated
-    "moduleResolution": "node", // Follow node.js rules for finding modules
+  // Use the `bundler` resolution so TypeScript will honor package.json "exports"
+  // fields and resolve modern ESM packages (required for some Storybook types).
+  "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true, // Assumes default exports if none are created manually
     "emitDeclarationOnly": true // Don't generate JS (rollup will do that) only export type declarations
   },

@@ -1,24 +1,6 @@
-import { addons } from '@storybook/manager-api';
+// Custom manager config removed because @storybook/manager-api
+// is not available with the current installed Storybook packages.
+// If you need to customize the manager, update this file to use
+// the supported APIs for your Storybook version.
 
-addons.setConfig({
-  navSize: 300,
-  bottomPanelHeight: 300,
-  rightPanelWidth: 300,
-  panelPosition: 'right',
-  enableShortcuts: true,
-  showToolbar: true,
-  theme: undefined,
-  selectedPanel: undefined,
-  initialActive: 'sidebar',
-  sidebar: {
-    showRoots: false,
-    collapsedRoots: ['other'],
-  },
-  toolbar: {
-    title: { hidden: false },
-    zoom: { hidden: false },
-    eject: { hidden: false },
-    copy: { hidden: false },
-    fullscreen: { hidden: false },
-  },
-});
+export {};
